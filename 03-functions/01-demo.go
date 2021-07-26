@@ -3,7 +3,8 @@ package main
 import "fmt"
 
 func main() {
-	addResult := add(100, 200)
+	//addResult := add(100, 200)
+	var addResult = add(100, 200)
 	fmt.Println(addResult)
 
 	//fmt.Println(divide(100, 7))

@@ -110,3 +110,28 @@ Go has support for higher order functions
     functions can be assigned to variables
     functions can be passed as arguments to other functions
     functions can be returned as return values from other functions
+
+http://github.com/tkmagesh/app1
+
+$GOPATH
+    pkg
+    bin
+    src
+        github.com
+            tkmagesh
+                app1
+                    pkg1
+                       import "github.com/tkmagesh/app1/pkg1" 
+                    pkg2
+
+
+To create a module
+    go mod init <module name>
+
+    package is just a folder
+
+To install a third party package
+    go get github.com/fatih/color
+
+    to use
+    import "github.com/fatih/color"

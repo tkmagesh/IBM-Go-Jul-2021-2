@@ -1,0 +1,66 @@
+Methodology
+    - No powerpoint
+    - No pre-built code
+    - Atleast 50% of participants should have completed the assignment to move on
+    - Not for information sharing
+    - Assignment will be tracked
+    - You are expected to share your assignment solution online
+
+Schedule
+    commence    : 09:30 Hrs
+    tea break   : 11:00 Hrs (15 mins)
+    lunch break : 13:00 Hrs (1 Hr)
+    tea break   : 15:30 Hrs (15 mins)
+    windup      : 17:30 Hrs
+
+About You
+    Name
+    Total Experience
+    Primary Skillset
+    Experience in Go (if any)
+    Any interesting books you read recently / any interesting shows you watched
+
+Golang
+    Why?
+    What is unique about Go?
+        fast
+        concurrency
+        garbage collection
+
+        compiled
+        No VM (close to hardware)
+        Memory management is taken care (by the garbage collector)
+
+    Simplicity
+        - No classes
+        - No inheritance (ONLY composition)
+        - No access modifiers
+        - No exceptions (ONLY errors)
+
+        - 25 keywords
+            var, func, import, package, if, switch, for, fallthrough, continue, chan, go, select, range, make, new
+
+    Built for concurrency
+        - goroutines
+        - 1000s of goroutines can be executed in one OS thread
+        - scheduler is builtin in the runtime
+        - language features for concurrency
+            go, chan, select, range
+
+    Close to hardware
+
+
+
+Barry Shwartz
+    The Paradox of Choice
+
+obj.m1()
+
+var t = new System.Threading.Thread(obj.m1)
+t.Start()
+
+go obj.m1()
+
+Visual Studio Code (http://code.visualstudio.com)
+    goland (jetbrains)
+

@@ -12,9 +12,17 @@ func main() {
 func sum(nos ...int) int {
 	//nos => slice of int (collection)
 	result := 0
-	/* for idx := 0; idx < len(nos); idx++ {
-		result += nos[idx]
-	} */
+	/*
+		for idx := 0; idx < len(nos); idx++ {
+			result += nos[idx]
+		}
+	*/
+
+	/*
+		for i, x := range nos {
+			fmt.Println(i, x)
+		}
+	*/
 
 	for _, no := range nos {
 		result += no

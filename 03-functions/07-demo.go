@@ -25,10 +25,10 @@ func f1() {
 
 func f2() (message string) {
 	data := 100
-	defer func(data int) {
+	defer func() {
 		fmt.Println("[defer - df1] exiting from f2")
 		message = fmt.Sprintf("message from defer-df1 of f2 func with data %d", data)
-	}(data)
+	}()
 	defer fmt.Println("[defer - df2] exiting from f2")
 	defer fmt.Println("[defer - df3] exiting from f2")
 	fmt.Println("f2 invoked")

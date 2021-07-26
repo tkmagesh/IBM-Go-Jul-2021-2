@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
 	/* defer func() {
@@ -22,13 +24,15 @@ func f1() {
 }
 
 func f2() (message string) {
-	defer func() {
+	data := 100
+	defer func(data int) {
 		fmt.Println("[defer - df1] exiting from f2")
-		message = "message from defer-df1 of f2 func"
-	}()
+		message = fmt.Sprintf("message from defer-df1 of f2 func with data %d", data)
+	}(data)
 	defer fmt.Println("[defer - df2] exiting from f2")
 	defer fmt.Println("[defer - df3] exiting from f2")
 	fmt.Println("f2 invoked")
+	data = 200
 	message = "message from the f2 func"
 	return
 }

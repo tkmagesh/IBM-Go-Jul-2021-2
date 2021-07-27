@@ -135,3 +135,13 @@ To install a third party package
 
     to use
     import "github.com/fatih/color"
+
+
+Collections
+    Array
+        - Fixed size
+    Slice
+        - Dynamic size
+        - Uses an array
+        
+    Map

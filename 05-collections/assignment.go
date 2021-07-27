@@ -33,16 +33,16 @@ func main() {
 
 }
 
-func getWordsCountBySize(words []string) map[int]int {
+func getWordsCountBySize(words []string) *map[int]int {
 	wordCountBySize := map[int]int{}
 	for _, word := range words {
 		wordCountBySize[len(word)] += 1
 	}
-	return wordCountBySize
+	return &wordCountBySize
 }
 
-func getMaxWordsCountBySize(wordCountBySize map[int]int) (wordSize, count int) {
-	for size, cnt := range wordCountBySize {
+func getMaxWordsCountBySize(wordCountBySize *map[int]int) (wordSize, count int) {
+	for size, cnt := range *wordCountBySize {
 		if count < cnt {
 			count = cnt
 			wordSize = size

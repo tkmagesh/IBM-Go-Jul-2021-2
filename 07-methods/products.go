@@ -12,8 +12,8 @@ type Product struct {
 
 type Products []Product
 
-func (products *Products) indexOf(product Product) int {
-	for index, currentProduct := range *products {
+func (products Products) indexOf(product Product) int {
+	for index, currentProduct := range products {
 		if currentProduct == product {
 			return index
 		}
@@ -21,12 +21,12 @@ func (products *Products) indexOf(product Product) int {
 	return -1
 }
 
-func (products *Products) includes(product Product) bool {
+func (products Products) includes(product Product) bool {
 	return products.indexOf(product) != -1
 }
 
-func (products *Products) any(predicate func(product Product) bool) bool {
-	for _, product := range *products {
+func (products Products) any(predicate func(product Product) bool) bool {
+	for _, product := range products {
 		if predicate(product) {
 			return true
 		}
@@ -34,8 +34,8 @@ func (products *Products) any(predicate func(product Product) bool) bool {
 	return false
 }
 
-func (products *Products) all(predicate func(product Product) bool) bool {
-	for _, product := range *products {
+func (products Products) all(predicate func(product Product) bool) bool {
+	for _, product := range products {
 		if !predicate(product) {
 			return false
 		}
@@ -43,9 +43,9 @@ func (products *Products) all(predicate func(product Product) bool) bool {
 	return true
 }
 
-func (products *Products) filter(predicate func(product Product) bool) *Products {
+func (products Products) filter(predicate func(product Product) bool) *Products {
 	result := Products{}
-	for _, product := range *products {
+	for _, product := range products {
 		if predicate(product) {
 			result = append(result, product)
 		}

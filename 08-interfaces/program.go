@@ -3,22 +3,22 @@ package main
 import (
 	"fmt"
 	"interfaces-app/models"
-	"interfaces-app/shapes"
-	"interfaces-app/utils"
 )
 
 func main() {
-	c := shapes.Circle{Radius: 3}
-	fmt.Println(c)
-	/* utils.PrintArea(c)
-	utils.PrintPerimeter(c) */
-	utils.PrintDimension(c)
+	/*
+		c := shapes.Circle{Radius: 3}
+		fmt.Println(c)
+		//utils.PrintArea(c)
+		//utils.PrintPerimeter(c)
+		utils.PrintDimension(c)
 
-	r := shapes.Rectangle{Width: 10, Height: 12}
-	fmt.Println(r)
-	/* utils.PrintArea(r)
-	utils.PrintPerimeter(r) */
-	utils.PrintDimension(r)
+		r := shapes.Rectangle{Width: 10, Height: 12}
+		fmt.Println(r)
+		//utils.PrintArea(r)
+		//utils.PrintPerimeter(r)
+		utils.PrintDimension(r)
+	*/
 
 	products := models.Products{
 		models.Product{105, "Pen", 5, 50, "Stationary"},
@@ -28,7 +28,17 @@ func main() {
 		models.Product{101, "Phone", 5000, 3, "Electronics"},
 		models.Product{100, "Bowl", 100, 50, "Utencil"},
 	}
+	fmt.Println("========= Initial List ==============")
+	products.Print()
 	/*
 		using the sort apis implemented to sort the products by id, name, cost etc and print the result
 	*/
+	fmt.Println("========= Default Sort ==============")
+	products.Sort()
+	products.Print()
+
+	fmt.Println("========= Sort By Name ==============")
+	products.SortByName()
+	products.Print()
+
 }

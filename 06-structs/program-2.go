@@ -31,6 +31,11 @@ func main() {
 
 	fmt.Println("Cost of grapes => ", grapes.Product.Cost)
 	fmt.Println("Cost of grapes => ", grapes.Cost)
+
+	//Equality check
+	p1 := Product{1, "Phone", 10000, 5, "Electronics"}
+	p2 := Product{1, "Phone", 10000, 5, "Electronics"}
+	fmt.Println("p1 == p2 => ", p1 == p2)
 }
 
 func NewPerishableProduct(id int, name string, cost float32, units int, category string, expiry string) *PerishableProduct {

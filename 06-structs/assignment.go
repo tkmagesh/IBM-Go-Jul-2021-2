@@ -40,28 +40,28 @@ func includes(products *[]Product, product Product) bool {
 	return indexOf(products, product) != -1
 }
 
-func any(products *[]Product, prodicate func(product Product) bool) bool {
+func any(products *[]Product, predicate func(product Product) bool) bool {
 	for _, product := range *products {
-		if prodicate(product) {
+		if predicate(product) {
 			return true
 		}
 	}
 	return false
 }
 
-func all(products *[]Product, prodicate func(product Product) bool) bool {
+func all(products *[]Product, predicate func(product Product) bool) bool {
 	for _, product := range *products {
-		if !prodicate(product) {
+		if !predicate(product) {
 			return false
 		}
 	}
 	return true
 }
 
-func filter(products *[]Product, prodicate func(product Product) bool) *[]Product {
+func filter(products *[]Product, predicate func(product Product) bool) *[]Product {
 	result := []Product{}
 	for _, product := range *products {
-		if prodicate(product) {
+		if predicate(product) {
 			result = append(result, product)
 		}
 	}

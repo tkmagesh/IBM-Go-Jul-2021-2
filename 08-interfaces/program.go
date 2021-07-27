@@ -1,36 +1,34 @@
 package main
 
-import "math"
-
-type Circle struct {
-	Radius float32
-}
-
-func (c Circle) Area() float32 {
-	return math.Pi * c.Radius * c.Radius
-}
-
-type Rectangle struct {
-	Width  float32
-	Height float32
-}
-
-func (r Rectangle) Area() float32 {
-	return r.Width * r.Height
-}
-
-type ShareWithArea interface {
-	Area() float32
-}
-
-func PrintArea(sa ShareWithArea) {
-	println("Area = ", sa.Area())
-}
+import (
+	"fmt"
+	"interfaces-app/models"
+	"interfaces-app/shapes"
+	"interfaces-app/utils"
+)
 
 func main() {
-	c := Circle{Radius: 3}
-	PrintArea(c)
+	c := shapes.Circle{Radius: 3}
+	fmt.Println(c)
+	/* utils.PrintArea(c)
+	utils.PrintPerimeter(c) */
+	utils.PrintDimension(c)
 
-	r := Rectangle{Width: 10, Height: 12}
-	PrintArea(r)
+	r := shapes.Rectangle{Width: 10, Height: 12}
+	fmt.Println(r)
+	/* utils.PrintArea(r)
+	utils.PrintPerimeter(r) */
+	utils.PrintDimension(r)
+
+	products := models.Products{
+		models.Product{105, "Pen", 5, 50, "Stationary"},
+		models.Product{103, "Pencil", 2, 100, "Stationary"},
+		models.Product{102, "Marker", 50, 20, "Stationary"},
+		models.Product{104, "Frying Pan", 500, 5, "Utencil"},
+		models.Product{101, "Phone", 5000, 3, "Electronics"},
+		models.Product{100, "Bowl", 100, 50, "Utencil"},
+	}
+	/*
+		using the sort apis implemented to sort the products by id, name, cost etc and print the result
+	*/
 }

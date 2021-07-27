@@ -66,4 +66,39 @@ func main() {
 
 	list := make([]int, 10, 100)
 	fmt.Println(list, len(list), cap(list))
+
+	//Map
+	//collection of key/value pairs
+	fmt.Println("Maps")
+	var cityRanks map[string]int = map[string]int{
+		"Bengaluru": 4,
+		"Udupi":     1,
+		"Mangaluru": 3,
+		"Mysuru":    2,
+	}
+	fmt.Println(cityRanks)
+	rankOfMysuru := cityRanks["Mysuru"]
+
+	fmt.Println("Rank of Mysuru => ", rankOfMysuru)
+
+	//adding a new key/value pair
+	cityRanks["Pune"] = 6
+	fmt.Println(cityRanks)
+
+	//find if a key exisits
+	if rank, ok := cityRanks["Ahmedabad"]; ok {
+		fmt.Println("Rank of Ahmedabad is ", rank)
+	} else {
+		fmt.Println("Ahmedabad not ranked yet!")
+	}
+
+	//delete a key/value pair
+	delete(cityRanks, "Mangaluru")
+	fmt.Println(cityRanks)
+
+	//iterating
+	for city, rank := range cityRanks {
+		fmt.Println(city, rank)
+	}
+
 }

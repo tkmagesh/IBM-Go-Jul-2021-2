@@ -20,6 +20,52 @@ func main() {
 		Product{100, "Bowl", 100, 50, "Utencil"},
 	}
 	fmt.Println(products)
+
+	anyStationaryProducts := any(&products, func(product Product) bool {
+		return product.Category == "Stationary"
+	})
+	fmt.Println(anyStationaryProducts)
+}
+
+func indexOf(products *[]Product, product Product) int {
+	for index, currentProduct := range *products {
+		if currentProduct == product {
+			return index
+		}
+	}
+	return -1
+}
+
+func includes(products *[]Product, product Product) bool {
+	return indexOf(products, product) != -1
+}
+
+func any(products *[]Product, prodicate func(product Product) bool) bool {
+	for _, product := range *products {
+		if prodicate(product) {
+			return true
+		}
+	}
+	return false
+}
+
+func all(products *[]Product, prodicate func(product Product) bool) bool {
+	for _, product := range *products {
+		if !prodicate(product) {
+			return false
+		}
+	}
+	return true
+}
+
+func filter(products *[]Product, prodicate func(product Product) bool) *[]Product {
+	result := []Product{}
+	for _, product := range *products {
+		if prodicate(product) {
+			result = append(result, product)
+		}
+	}
+	return &result
 }
 
 /*

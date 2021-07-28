@@ -6,6 +6,7 @@ import (
 )
 
 func main() {
+
 	ch1 := make(chan int)
 	ch2 := make(chan int)
 	go print("Hello", 3, ch1, ch2)
@@ -13,6 +14,7 @@ func main() {
 	ch1 <- 1
 	var input string
 	fmt.Scanln(&input)
+	fmt.Println("Done")
 }
 
 func print(s string, delay time.Duration, in chan int, out chan int) {

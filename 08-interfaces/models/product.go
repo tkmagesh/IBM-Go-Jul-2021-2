@@ -10,6 +10,7 @@ type Product struct {
 	Category string
 }
 
+/* fmt.Stringer interface implementation */
 func (p Product) String() string {
 	return fmt.Sprintf("Id = %d, Name = %s, Cost = %v, Units = %d, Category = %s", p.Id, p.Name, p.Cost, p.Units, p.Category)
 }

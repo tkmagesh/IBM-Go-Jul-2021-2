@@ -1,0 +1,27 @@
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /v1/todo                  --> todo-app/controllers.GetTodos (3 handlers)
+[GIN-debug] POST   /v1/todo                  --> todo-app/controllers.CreateATodo (3 handlers)
+[GIN-debug] GET    /v1/todo/:id              --> todo-app/controllers.GetATodo (3 handlers)
+[GIN-debug] PUT    /v1/todo/:id              --> todo-app/controllers.UpdateATodo (3 handlers)
+[GIN-debug] DELETE /v1/todo/:id              --> todo-app/controllers.DeleteATodo (3 handlers)
+[GIN-debug] Environment variable PORT is undefined. Using port :8080 by default
+[GIN-debug] Listening and serving HTTP on :8080
+[GIN] 2021/07/29 - 17:18:52 | 404 |         930ns |       127.0.0.1 | PRI      "*"
+[GIN] 2021/07/29 - 17:18:57 | 404 |         639ns |       127.0.0.1 | PRI      "*"
+[GIN] 2021/07/29 - 17:19:11 | 200 |   12.543485ms |             ::1 | GET      "/v1/todo"
+[GIN] 2021/07/29 - 17:19:11 | 404 |         939ns |             ::1 | GET      "/favicon.ico"
+[GIN] 2021/07/29 - 17:19:26 | 200 |     995.471µs |             ::1 | GET      "/v1/todo/1"
+[GIN] 2021/07/29 - 17:19:33 | 404 |    1.002089ms |             ::1 | GET      "/v1/todo/100"
+[GIN] 2021/07/29 - 17:20:19 | 200 |     488.883µs |             ::1 | GET      "/v1/todo"
+[GIN] 2021/07/29 - 17:21:13 | 200 |   11.532259ms |             ::1 | POST     "/v1/todo"
+[GIN] 2021/07/29 - 17:21:14 | 404 |         587ns |             ::1 | PRI      "*"
+[GIN] 2021/07/29 - 17:21:15 | 404 |         936ns |             ::1 | PRI      "*"
+[GIN] 2021/07/29 - 17:21:44 | 200 |    7.267154ms |             ::1 | DELETE   "/v1/todo/11"
+[GIN] 2021/07/29 - 17:21:53 | 404 |     4.50035ms |             ::1 | GET      "/v1/todo/11"
+[GIN] 2021/07/29 - 17:23:21 | 404 |         916ns |             ::1 | PRI      "*"
+[GIN] 2021/07/29 - 17:23:32 | 404 |       1.078µs |             ::1 | PRI      "*"

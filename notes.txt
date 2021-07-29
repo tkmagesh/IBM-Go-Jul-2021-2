@@ -254,3 +254,11 @@ GRPC
 
     to install the grpc package to be used in the application
         go get -u google.golang.org/grpc
+
+
+Http Server
+    GET http://localhost:8080/products
+    GET http://localhost:8080/products/101
+    POST http://localhost:8080/products
+    PUT http://localhost:8080/products/101
+    DELETE http://localhost:8080/products/101

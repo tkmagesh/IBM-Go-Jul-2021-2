@@ -32,6 +32,21 @@ message PrimeResponse{
     int64 no = 1;
 }
 
+//bidirectional streaming
+message Greeting{
+    string first_name = 1;
+    string last_name = 2;
+}
+
+message GreetRequest{
+    Greeting greeting = 1;
+}
+
+message GreetResponse{
+    string greetMessage = 1;
+}
+
+
 service AppService {
 
     //request & resonse pattern
@@ -42,4 +57,8 @@ service AppService {
 
     //server streaming
     rpc Prime(PrimeRequest) returns (stream PrimeResponse);
+
+    //bidirectional streaming
+    rpc Greet(stream GreetRequest) returns (stream GreetResponse);
+
 }

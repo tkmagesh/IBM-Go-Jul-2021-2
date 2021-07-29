@@ -20,9 +20,73 @@ func main() {
 	client := proto.NewAppServiceClient(conn)
 	//doRequestResponse(client)
 	//doClientStreaming(client)
-	doServerStreaming(client)
+	//doServerStreaming(client)
+	doBiDirectionalStreaming(client)
 }
 
+func doBiDirectionalStreaming(client proto.AppServiceClient) {
+	stream, err := client.Greet(context.Background())
+	if err != nil {
+		log.Fatalln(err)
+	}
+	requestData := []*proto.GreetRequest{
+		&proto.GreetRequest{
+			Greeting: &proto.Greeting{
+				FirstName: "Magesh",
+				LastName:  "Kuppan",
+			},
+		},
+		&proto.GreetRequest{
+			Greeting: &proto.Greeting{
+				FirstName: "Suresh",
+				LastName:  "Kannan",
+			},
+		},
+		&proto.GreetRequest{
+			Greeting: &proto.Greeting{
+				FirstName: "Ramesh",
+				LastName:  "Jayaraman",
+			},
+		},
+		&proto.GreetRequest{
+			Greeting: &proto.Greeting{
+				FirstName: "Rajesh",
+				LastName:  "Pandit",
+			},
+		},
+		&proto.GreetRequest{
+			Greeting: &proto.Greeting{
+				FirstName: "Naresh",
+				LastName:  "Kumar",
+			},
+		},
+	}
+
+	go func() {
+		for _, req := range requestData {
+			stream.Send(req)
+		}
+		stream.CloseSend()
+	}()
+	/* wg := &sync.WaitGroup{}
+	wg.Add(1) */
+	done := make(chan bool)
+	go func() {
+		for {
+			res, err := stream.Recv()
+			if err == io.EOF {
+				fmt.Println("Thats all folks!")
+				break
+			}
+			if err != nil {
+				log.Fatalln(err)
+			}
+			log.Println("Greet Result:", res.GetGreetMessage())
+		}
+		done <- true
+	}()
+	<-done
+}
 func doServerStreaming(client proto.AppServiceClient) {
 	primeReq := &proto.PrimeRequest{RangeStart: 10, RangeEnd: 100}
 	stream, e := client.Prime(context.Background(), primeReq)

@@ -251,3 +251,6 @@ GRPC
         protoc ./proto/service.proto --go_out=plugins=grpc:.
         OR
         protoc --go_out=. --go_opt=paths=source_relative  proto/service.proto
+
+    to install the grpc package to be used in the application
+        go get -u google.golang.org/grpc

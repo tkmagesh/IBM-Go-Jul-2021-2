@@ -16,6 +16,7 @@ type server struct {
 }
 
 func (s *server) Add(ctx context.Context, req *proto.AddRequest) (*proto.AddResponse, error) {
+	time.Sleep(5 * time.Second)
 	x := req.GetX()
 	y := req.GetY()
 	result := x + y

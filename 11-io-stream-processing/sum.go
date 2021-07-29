@@ -88,6 +88,8 @@ func merger(oddSumCh chan int, evenSumCh chan int, resultFile string, wg *sync.W
 	defer func() {
 		file.Close()
 		wg.Done()
+		close(oddSumCh)
+		close(evenSumCh)
 	}()
 
 	for i := 0; i < 2; i++ {

@@ -235,4 +235,16 @@ GRPC
     tools
         generate stubs & proxies
 
+        go get -u github.com/golang/protobuf/protoc-gen-go (go 1.15)
+
+        OR
+
+        go install google.golang.org/grpc/cmd/protoc-gen-grpc-go@latest (go 1.16)
+
+        OR
+        
+        brew install protobuf
+        brew install protoc-gen-go
+
+
 

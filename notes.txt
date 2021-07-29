@@ -249,4 +249,5 @@ GRPC
 
     to generate the proxy and stub, run the following command from the application folder
         protoc ./proto/service.proto --go_out=plugins=grpc:.
-
+        OR
+        protoc --go_out=. --go_opt=paths=source_relative  proto/service.proto

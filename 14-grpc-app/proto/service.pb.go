@@ -222,6 +222,109 @@ func (x *AverageResponse) GetResult() int64 {
 	return 0
 }
 
+//server streaming
+type PrimeRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	RangeStart int64 `protobuf:"varint,1,opt,name=rangeStart,proto3" json:"rangeStart,omitempty"`
+	RangeEnd   int64 `protobuf:"varint,2,opt,name=rangeEnd,proto3" json:"rangeEnd,omitempty"`
+}
+
+func (x *PrimeRequest) Reset() {
+	*x = PrimeRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_service_proto_msgTypes[4]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *PrimeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PrimeRequest) ProtoMessage() {}
+
+func (x *PrimeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_service_proto_msgTypes[4]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PrimeRequest.ProtoReflect.Descriptor instead.
+func (*PrimeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_service_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *PrimeRequest) GetRangeStart() int64 {
+	if x != nil {
+		return x.RangeStart
+	}
+	return 0
+}
+
+func (x *PrimeRequest) GetRangeEnd() int64 {
+	if x != nil {
+		return x.RangeEnd
+	}
+	return 0
+}
+
+type PrimeResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	No int64 `protobuf:"varint,1,opt,name=no,proto3" json:"no,omitempty"`
+}
+
+func (x *PrimeResponse) Reset() {
+	*x = PrimeResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_service_proto_msgTypes[5]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *PrimeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PrimeResponse) ProtoMessage() {}
+
+func (x *PrimeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_service_proto_msgTypes[5]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PrimeResponse.ProtoReflect.Descriptor instead.
+func (*PrimeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_service_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *PrimeResponse) GetNo() int64 {
+	if x != nil {
+		return x.No
+	}
+	return 0
+}
+
 var File_proto_service_proto protoreflect.FileDescriptor
 
 var file_proto_service_proto_rawDesc = []byte{
@@ -236,16 +339,26 @@ var file_proto_service_proto_rawDesc = []byte{
 	0x0c, 0x0a, 0x01, 0x78, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x01, 0x78, 0x22, 0x29, 0x0a,
 	0x0f, 0x41, 0x76, 0x65, 0x72, 0x61, 0x67, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
 	0x12, 0x16, 0x0a, 0x06, 0x72, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03,
-	0x52, 0x06, 0x72, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x32, 0x76, 0x0a, 0x0a, 0x41, 0x70, 0x70, 0x53,
-	0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x2c, 0x0a, 0x03, 0x41, 0x64, 0x64, 0x12, 0x11, 0x2e,
-	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x41, 0x64, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
-	0x1a, 0x12, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x41, 0x64, 0x64, 0x52, 0x65, 0x73, 0x70,
-	0x6f, 0x6e, 0x73, 0x65, 0x12, 0x3a, 0x0a, 0x07, 0x41, 0x76, 0x65, 0x72, 0x61, 0x67, 0x65, 0x12,
-	0x15, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x41, 0x76, 0x65, 0x72, 0x61, 0x67, 0x65, 0x52,
-	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x16, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x41,
-	0x76, 0x65, 0x72, 0x61, 0x67, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x28, 0x01,
-	0x42, 0x08, 0x5a, 0x06, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74,
-	0x6f, 0x33,
+	0x52, 0x06, 0x72, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x22, 0x4a, 0x0a, 0x0c, 0x50, 0x72, 0x69, 0x6d,
+	0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x1e, 0x0a, 0x0a, 0x72, 0x61, 0x6e, 0x67,
+	0x65, 0x53, 0x74, 0x61, 0x72, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x0a, 0x72, 0x61,
+	0x6e, 0x67, 0x65, 0x53, 0x74, 0x61, 0x72, 0x74, 0x12, 0x1a, 0x0a, 0x08, 0x72, 0x61, 0x6e, 0x67,
+	0x65, 0x45, 0x6e, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x08, 0x72, 0x61, 0x6e, 0x67,
+	0x65, 0x45, 0x6e, 0x64, 0x22, 0x1f, 0x0a, 0x0d, 0x50, 0x72, 0x69, 0x6d, 0x65, 0x52, 0x65, 0x73,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x0e, 0x0a, 0x02, 0x6e, 0x6f, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x03, 0x52, 0x02, 0x6e, 0x6f, 0x32, 0xac, 0x01, 0x0a, 0x0a, 0x41, 0x70, 0x70, 0x53, 0x65, 0x72,
+	0x76, 0x69, 0x63, 0x65, 0x12, 0x2c, 0x0a, 0x03, 0x41, 0x64, 0x64, 0x12, 0x11, 0x2e, 0x70, 0x72,
+	0x6f, 0x74, 0x6f, 0x2e, 0x41, 0x64, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x12,
+	0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x41, 0x64, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x73, 0x65, 0x12, 0x3a, 0x0a, 0x07, 0x41, 0x76, 0x65, 0x72, 0x61, 0x67, 0x65, 0x12, 0x15, 0x2e,
+	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x41, 0x76, 0x65, 0x72, 0x61, 0x67, 0x65, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x1a, 0x16, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x41, 0x76, 0x65,
+	0x72, 0x61, 0x67, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x28, 0x01, 0x12, 0x34,
+	0x0a, 0x05, 0x50, 0x72, 0x69, 0x6d, 0x65, 0x12, 0x13, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e,
+	0x50, 0x72, 0x69, 0x6d, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x14, 0x2e, 0x70,
+	0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x50, 0x72, 0x69, 0x6d, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x73, 0x65, 0x30, 0x01, 0x42, 0x08, 0x5a, 0x06, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x06,
+	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -260,20 +373,24 @@ func file_proto_service_proto_rawDescGZIP() []byte {
 	return file_proto_service_proto_rawDescData
 }
 
-var file_proto_service_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_proto_service_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_proto_service_proto_goTypes = []interface{}{
 	(*AddRequest)(nil),      // 0: proto.AddRequest
 	(*AddResponse)(nil),     // 1: proto.AddResponse
 	(*AverageRequest)(nil),  // 2: proto.AverageRequest
 	(*AverageResponse)(nil), // 3: proto.AverageResponse
+	(*PrimeRequest)(nil),    // 4: proto.PrimeRequest
+	(*PrimeResponse)(nil),   // 5: proto.PrimeResponse
 }
 var file_proto_service_proto_depIdxs = []int32{
 	0, // 0: proto.AppService.Add:input_type -> proto.AddRequest
 	2, // 1: proto.AppService.Average:input_type -> proto.AverageRequest
-	1, // 2: proto.AppService.Add:output_type -> proto.AddResponse
-	3, // 3: proto.AppService.Average:output_type -> proto.AverageResponse
-	2, // [2:4] is the sub-list for method output_type
-	0, // [0:2] is the sub-list for method input_type
+	4, // 2: proto.AppService.Prime:input_type -> proto.PrimeRequest
+	1, // 3: proto.AppService.Add:output_type -> proto.AddResponse
+	3, // 4: proto.AppService.Average:output_type -> proto.AverageResponse
+	5, // 5: proto.AppService.Prime:output_type -> proto.PrimeResponse
+	3, // [3:6] is the sub-list for method output_type
+	0, // [0:3] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
@@ -333,6 +450,30 @@ func file_proto_service_proto_init() {
 				return nil
 			}
 		}
+		file_proto_service_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*PrimeRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_service_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*PrimeResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -340,7 +481,7 @@ func file_proto_service_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_proto_service_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   4,
+			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
@@ -370,6 +511,8 @@ type AppServiceClient interface {
 	Add(ctx context.Context, in *AddRequest, opts ...grpc.CallOption) (*AddResponse, error)
 	//client streaming
 	Average(ctx context.Context, opts ...grpc.CallOption) (AppService_AverageClient, error)
+	//server streaming
+	Prime(ctx context.Context, in *PrimeRequest, opts ...grpc.CallOption) (AppService_PrimeClient, error)
 }
 
 type appServiceClient struct {
@@ -423,12 +566,46 @@ func (x *appServiceAverageClient) CloseAndRecv() (*AverageResponse, error) {
 	return m, nil
 }
 
+func (c *appServiceClient) Prime(ctx context.Context, in *PrimeRequest, opts ...grpc.CallOption) (AppService_PrimeClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_AppService_serviceDesc.Streams[1], "/proto.AppService/Prime", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &appServicePrimeClient{stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
+}
+
+type AppService_PrimeClient interface {
+	Recv() (*PrimeResponse, error)
+	grpc.ClientStream
+}
+
+type appServicePrimeClient struct {
+	grpc.ClientStream
+}
+
+func (x *appServicePrimeClient) Recv() (*PrimeResponse, error) {
+	m := new(PrimeResponse)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
 // AppServiceServer is the server API for AppService service.
 type AppServiceServer interface {
 	//request & resonse pattern
 	Add(context.Context, *AddRequest) (*AddResponse, error)
 	//client streaming
 	Average(AppService_AverageServer) error
+	//server streaming
+	Prime(*PrimeRequest, AppService_PrimeServer) error
 }
 
 // UnimplementedAppServiceServer can be embedded to have forward compatible implementations.
@@ -440,6 +617,9 @@ func (*UnimplementedAppServiceServer) Add(context.Context, *AddRequest) (*AddRes
 }
 func (*UnimplementedAppServiceServer) Average(AppService_AverageServer) error {
 	return status.Errorf(codes.Unimplemented, "method Average not implemented")
+}
+func (*UnimplementedAppServiceServer) Prime(*PrimeRequest, AppService_PrimeServer) error {
+	return status.Errorf(codes.Unimplemented, "method Prime not implemented")
 }
 
 func RegisterAppServiceServer(s *grpc.Server, srv AppServiceServer) {
@@ -490,6 +670,27 @@ func (x *appServiceAverageServer) Recv() (*AverageRequest, error) {
 	return m, nil
 }
 
+func _AppService_Prime_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(PrimeRequest)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
+	}
+	return srv.(AppServiceServer).Prime(m, &appServicePrimeServer{stream})
+}
+
+type AppService_PrimeServer interface {
+	Send(*PrimeResponse) error
+	grpc.ServerStream
+}
+
+type appServicePrimeServer struct {
+	grpc.ServerStream
+}
+
+func (x *appServicePrimeServer) Send(m *PrimeResponse) error {
+	return x.ServerStream.SendMsg(m)
+}
+
 var _AppService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "proto.AppService",
 	HandlerType: (*AppServiceServer)(nil),
@@ -504,6 +705,11 @@ var _AppService_serviceDesc = grpc.ServiceDesc{
 			StreamName:    "Average",
 			Handler:       _AppService_Average_Handler,
 			ClientStreams: true,
+		},
+		{
+			StreamName:    "Prime",
+			Handler:       _AppService_Prime_Handler,
+			ServerStreams: true,
 		},
 	},
 	Metadata: "proto/service.proto",

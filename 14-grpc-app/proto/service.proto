@@ -24,7 +24,7 @@ message AverageResponse{
 
 //server streaming
 message PrimeRequest{
-    int64 rangeState = 1;
+    int64 rangeStart = 1;
     int64 rangeEnd = 2;
 }
 

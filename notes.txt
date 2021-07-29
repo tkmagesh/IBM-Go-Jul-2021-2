@@ -145,3 +145,94 @@ Collections
         - Uses an array
         
     Map
+
+GRPC
+
+
+Web
+    IP
+    TCP
+    HTTP
+    URL
+    XML
+
+Web Services
+    SOAP (Simple Object Access Protocol)
+    WSDL (Web Service Description Language)
+
+
+Data As a Resource (REST)
+    - What? -> URL
+        http://myApp.com/products
+        http://myApp.com/categories
+        http://myApp.com/categories/Stationary
+        http://myApp.com/categories/Stationary/Products
+
+    - How? -> HTTP Verbs
+        GET -> Retrieve
+        POST -> Create
+        PUT -> Update
+        DELETE -> Delete
+        PATCH -> Partial Update
+
+    - Status of Request
+        200 -> Success
+        201 -> Created
+        202 -> Accepted
+        204 -> No Content
+        302 -> Found
+        301 -> Object Moved
+        400 -> Bad Request
+        401 -> Unauthorized
+        403 -> Forbidden
+        404 -> Not Found
+        405 -> Method Not Allowed
+        500 -> Internal Server Error
+
+    - Response
+        JSON
+
+P101,Pen,10,1000,Stationary
+P102,Pencil,5,500,Stationary
+
+59
+xml = 350
+json = 217
+
+
+.NET -> .NET
+    binary format
+    TCP
+        stateful connections
+            realtime updates
+            bidirectional communication
+
+
+HTTP 
+    stateless protocol
+    text based
+
+Microservices
+
+GRPC
+    http/2.0
+        binary format
+        sticky connections
+        bidirectional communication
+
+    communication patterns
+        request/response
+        client streaming
+        server streaming
+        bidirectional streaming
+
+    protocol buffers
+        binary format
+
+        data description
+        service description
+
+    tools
+        generate stubs & proxies
+
+

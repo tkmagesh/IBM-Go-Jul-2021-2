@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 
 func main() {
 	fmt.Println(sum(10, 20))                                                        // => 30
@@ -12,6 +15,27 @@ func main() {
 	fmt.Println(sum(10, 20, []interface{}{30, 40, []interface{}{50, "60", "abc"}})) // => 210
 }
 
-func sum() int {
-
+func sum(nos ...interface{}) int {
+	result := 0
+	for _, no := range nos {
+		switch value := no.(type) {
+		case int:
+			result += value
+		case string:
+			if no, err := strconv.Atoi(value); err == nil {
+				result += no
+			}
+		case []int:
+			intValList := make([]interface{}, len(value))
+			for i, v := range value {
+				intValList[i] = v
+			}
+			result += sum(intValList...)
+		case []interface{}:
+			result += sum(value...)
+		default:
+			continue
+		}
+	}
+	return result
 }
